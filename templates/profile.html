@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - VRWorlds</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>VRWorlds Profile</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Welcome, {{ user.username }}!</h2>
+            <p>Your current balance is: {{ user.balance }}</p>
+            <h3>Referrals</h3>
+            <p>First Level Referrals:</p>
+            <ul>
+                {% for username in first_level_usernames %}
+                    <li>{{ username }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </main>
+</body>
+</html>
